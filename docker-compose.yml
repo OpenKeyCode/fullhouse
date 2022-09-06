@@ -1,0 +1,45 @@
+version: "3.7"
+services:
+    app:
+        platform: linux/x86_64
+        container_name: app_fullhouse_back
+        image: fullhouse_back
+        build:
+            context: ./
+            dockerfile: ./docker/Dockerfile
+        volumes:
+            - ./:/var/www/html
+            - ./docker/php.ini:/usr/local/etc/php/php.ini
+            - ./docker/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+            - ./docker/000-default.conf:/etc/apache2/sites-available/000-default.conf
+        networks:
+            default:
+                ipv4_address: 172.29.0.2
+    db:
+        platform: linux/x86_64
+        container_name: db_fullhouse_back
+        image: mysql:5.7
+        environment:
+            MYSQL_DATABASE: "${DB_DATABASE}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            MYSQL_ROOT_PASSWORD: "root"
+        volumes:
+            - mysql:/var/lib/mysql
+        networks:
+            default:
+                ipv4_address: 172.29.0.3
+
+volumes:
+    mysql:
+
+networks:
+    default:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.29.0.0/16
+                  gateway: 172.29.0.1
+
