@@ -23,6 +23,14 @@ class User extends Authenticatable
             self::ROLE_USER  => 'Пользователь'
         ];
     }
+
+//    public function getRoleAttribute($value)
+//    {
+////        $role = $this->getRole()[$value];
+//        return $this->attributes['role'] = $value;
+//    }
+
+
     /**
      * The attributes that are mass assignable.
      *

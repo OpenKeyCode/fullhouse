@@ -21,7 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::group(['namespace' => 'Back', 'prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', 'DashboardController');
-    Route::resource('users', 'UserController');
+    Route::resource('users', 'UserController')->names('admin.users');
 });
 Route::group(['namespace' => 'Front'], function () {
     Route::resource('users', 'UserController');
