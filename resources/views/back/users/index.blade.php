@@ -17,7 +17,9 @@
             </div>
         </div>
         <section class="content">
-            <div class="d-flex justify-content-end mb-2 mr-2"><button type="button" class="btn btn-primary">Добавить</button></div>
+            <div class="d-flex justify-content-end mb-2 mr-2">
+                <button type="button" class="btn btn-primary">Добавить</button>
+            </div>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -50,13 +52,22 @@
                                                     @endswitch
                                                 </span></td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><i class="fas fa-pen"></i></button>
-                                                <button type="button" class="btn btn-danger"><i class="fas fa-broom"></i></button>
+                                                <div class="d-flex">
+                                                    <button type="button" class="btn btn-primary mr-1"><i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-success mr-1"><i class="fas fa-pen"></i>
+                                                    </button>
+                                                    <form action="#">
+                                                        <button type="button" class="btn btn-danger"><i
+                                                                class="fas fa-trash"></i></button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-end m-1">{{$users->links()}}</div>
                             </div>
                         </div>
                     </div>
