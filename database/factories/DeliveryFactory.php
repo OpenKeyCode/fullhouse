@@ -6,15 +6,12 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DeliveryFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
+
+    public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->unique(true)->word(),
+            'description' => $this->faker->text(),
         ];
     }
 }

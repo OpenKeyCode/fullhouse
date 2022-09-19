@@ -19,7 +19,7 @@ class CreateProductCategoriesTable extends Migration
             $table->string('image');
             $table->string('color')->nullable();
             $table->string('description')->nullable();
-            $table->foreignId('parent_category_id')->constrained('product_categories');
+            $table->foreignId('parent_category_id')->nullable()->constrained('product_categories');
             $table->softDeletes();
             $table->timestamps();
         });
