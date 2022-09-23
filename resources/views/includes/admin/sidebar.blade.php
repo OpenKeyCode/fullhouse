@@ -11,7 +11,7 @@
                 <li class="nav-item menu-open">
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./index.html" class="nav-link active">
+                            <a href="{{route('dashboard')}}" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -29,7 +29,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.product_categories.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Список категории</p>
                             </a>
@@ -83,7 +83,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.rooms.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Список комнат</p>
                             </a>
@@ -108,7 +108,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.deliveries.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Типы доставки</p>
                             </a>

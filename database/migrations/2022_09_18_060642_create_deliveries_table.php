@@ -17,6 +17,7 @@ class CreateDeliveriesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

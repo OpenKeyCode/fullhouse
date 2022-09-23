@@ -12,7 +12,7 @@ class ProductCategoryController extends Controller
     {
 
         $categories = ProductCategory::orderBy('id', 'DESC')->paginate(5);
-//        return view('admin.category.index', compact('categories'));
+        return view('back.product_categories.index', compact('categories'));
     }
 
 

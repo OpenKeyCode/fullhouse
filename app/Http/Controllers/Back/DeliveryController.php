@@ -10,9 +10,8 @@ class DeliveryController extends Controller
 {
     public function index()
     {
-
         $deliveries = Delivery::orderBy('id', 'DESC')->paginate(5);
-//        return view('admin.deliveries.index', compact('deliveries'));
+        return view('back.deliveries.index', compact('deliveries'));
 
     }
 
