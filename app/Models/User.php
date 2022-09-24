@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
@@ -24,11 +25,11 @@ class User extends Authenticatable
         ];
     }
 
-//    public function getRoleAttribute($value)
-//    {
-////        $role = $this->getRole()[$value];
-//        return $this->attributes['role'] = $value;
-//    }
+
+    public function getRoleAttribute($value)
+    {
+        return $this->getRole()[$value];
+    }
 
 
     /**

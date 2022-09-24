@@ -42,21 +42,15 @@
                                     @foreach($users as $user)
                                         <tr>
                                             <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
+                                            <td>{{$user->name . ' ' . $user->last_name}}</td>
                                             <td>{{$user->phone}}</td>
-                                            <td><span class="tag tag-success">
-                                                    @switch($user->role)
-                                                        @case(1) Пользователь @break
-                                                        @case(0) Аминистратор @break
-                                                        @default Не определено @break
-                                                    @endswitch
-                                                </span></td>
+                                            <td><span class="tag tag-success">{{$user->role}}</span></td>
                                             <td>
                                                 <div class="d-flex">
-                                                    <button type="button" class="btn btn-primary mr-1"><i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-success mr-1"><i class="fas fa-pen"></i>
-                                                    </button>
+                                                    <a href="{{route('admin.users.show', $user->id)}}" class="btn btn-primary mr-1"><i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a  href="#" class="btn btn-success mr-1"><i class="fas fa-pen"></i>
+                                                    </a>
                                                     <form action="#">
                                                         <button type="button" class="btn btn-danger"><i
                                                                 class="fas fa-trash"></i></button>
