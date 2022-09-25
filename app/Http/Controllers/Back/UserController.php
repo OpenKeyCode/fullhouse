@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Back\User\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,6 +12,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderBy('id', 'DESC')->paginate(5);
+//        $users = User::withTrashed()->orderBy('id', 'DESC')->paginate(5);
+//        dd(User::onlyTrashed()->get());
         return view('back.users.index', compact('users'));
     }
 
@@ -29,13 +30,14 @@ class UserController extends Controller
 
     public function show($id)
     {
-        if(empty($user = User::find($id))) abort(404);
+        if (empty($user = User::find($id))) abort(404);
         return view('back.users.show', compact('user'));
     }
 
     public function edit($id)
     {
-        //
+        if (empty($user = User::find($id))) abort(404);
+        return view('back.users.edit', compact('user'));
     }
 
 
@@ -47,6 +49,8 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        //
+        if (empty($user = User::find($id))) abort(404);
+        $user->delete();
+        return redirect()->route('admin.users.index');
     }
 }

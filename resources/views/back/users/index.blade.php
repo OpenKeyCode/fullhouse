@@ -49,10 +49,12 @@
                                                 <div class="d-flex">
                                                     <a href="{{route('admin.users.show', $user->id)}}" class="btn btn-primary mr-1"><i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a  href="#" class="btn btn-success mr-1"><i class="fas fa-pen"></i>
+                                                    <a  href="{{route('admin.users.edit', $user->id)}}" class="btn btn-success mr-1"><i class="fas fa-pen"></i>
                                                     </a>
-                                                    <form action="#">
-                                                        <button type="button" class="btn btn-danger"><i
+                                                    <form action="{{route('admin.users.destroy', $user->id)}}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger"><i
                                                                 class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>
