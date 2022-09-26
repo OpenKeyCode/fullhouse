@@ -49,7 +49,7 @@
                                 <form action="{{route('admin.users.destroy', $user->id)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger btn-block"><b>Удалить</b></button>
+                                    <button type="submit" class="btn btn-danger btn-block"><b>Удалить</b></button>
                                 </form>
                             </div>
 
@@ -69,11 +69,13 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="setting">
-                                        <form class="form-horizontal">
+                                        <form class="form-horizontal" action="{{route('admin.users.update', $user->id)}}">
+                                            @csrf
+                                            @method('put')
                                             <div class="form-group row">
                                                 <label for="inputName" class="col-sm-2 col-form-label">Имя</label>
                                                 <div class="col-sm-10">
-                                                    <input value="{{$user->name}}" type="text" class="form-control"
+                                                    <input value="{{$user->name}}" name="name" type="text" class="form-control"
                                                            id="inputName" placeholder="Имя">
                                                 </div>
                                             </div>
@@ -81,33 +83,34 @@
                                                 <label for="inputLastName"
                                                        class="col-sm-2 col-form-label">Фамилия</label>
                                                 <div class="col-sm-10">
-                                                    <input value="{{$user->last_name}}" type="text" class="form-control"
+                                                    <input value="{{$user->last_name}}" name="last_name" type="text" class="form-control"
                                                            id="inputLastName" placeholder="Фамилия">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                                                 <div class="col-sm-10">
-                                                    <input value="{{$user->email}}" type="email" class="form-control"
+                                                    <input value="{{$user->email}}" name="email" type="email" class="form-control"
                                                            id="inputEmail" placeholder="Email">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="inputPhone" class="col-sm-2 col-form-label">Телефон</label>
                                                 <div class="col-sm-10">
-                                                    <input value="{{$user->phone}}" type="tel" class="form-control"
+                                                    <input value="{{$user->phone}}" name="phone" type="tel" class="form-control"
                                                            id="inputPhone" placeholder="Телефон">
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
-                                                <label for="inputRole" class="col-sm-2 col-form-label">Роль</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-control">
-                                                        <option>Администратор</option>
-                                                        <option>Пользователь</option>
-                                                    </select></div>
-                                            </div>
+{{--                                            <div class="form-group row">--}}
+{{--                                                <label for="inputRole" class="col-sm-2 col-form-label">Роль</label>--}}
+{{--                                                <div class="col-sm-10">--}}
+{{--                                                    <select  class="form-control">--}}
+{{--                                                        <option>Администратор</option>--}}
+{{--                                                        <option>Пользователь</option>--}}
+{{--                                                    </select>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                             <div class="form-group row">
                                                 <div class="offset-sm-2 col-sm-10 d-flex justify-content-end">
                                                     <button type="submit" class="btn btn-success">Обновить</button>
@@ -119,9 +122,7 @@
 
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </section>
