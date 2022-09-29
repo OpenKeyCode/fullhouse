@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 
 class DeliveryController extends Controller
 {
@@ -18,7 +20,7 @@ class DeliveryController extends Controller
 
     public function create()
     {
-        //
+        return view('back.deliveries.create');
     }
 
 
@@ -30,7 +32,8 @@ class DeliveryController extends Controller
 
     public function show($id)
     {
-        //
+        if (empty($delivery = Delivery::find($id))) abort(Response::HTTP_NOT_FOUND);
+        return view('back.deliveries.show', compact('delivery'));
     }
 
 
@@ -48,6 +51,8 @@ class DeliveryController extends Controller
 
     public function destroy($id)
     {
-        //
+        if (empty($delivery = Delivery::find($id))) abort(Response::HTTP_NOT_FOUND);
+        $delivery->delete();
+        return redirect()->route('admin.deliveries.index');
     }
 }

@@ -68,7 +68,7 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        if (empty($user = User::find($id))) abort(404);
+        if (empty($user = User::find($id))) abort(Response::HTTP_NOT_FOUND);
         $user->delete();
         return redirect()->route('admin.users.index');
     }
