@@ -18,7 +18,7 @@
         </div>
         <section class="content">
             <div class="d-flex justify-content-end mb-2 mr-2">
-                <button type="button" class="btn btn-primary">Добавить</button>
+                <a href="{{route('admin.users.create')}}"  class="btn btn-primary">Добавить</a>
             </div>
             <div class="container-fluid">
                 <div class="row">

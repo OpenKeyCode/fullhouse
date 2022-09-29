@@ -138,7 +138,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.users.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Добавить пользователя</p>
                             </a>
@@ -219,6 +219,16 @@
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Настройка сайта</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item menu-is-opening menu-open">
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-trash"></i>
+                                    <p>Корзина</p>
                             </a>
                         </li>
                     </ul>
