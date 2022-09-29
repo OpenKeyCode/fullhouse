@@ -16,12 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 Auth::routes();
 Route::group(['namespace' => 'Back', 'prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], function () {
-    Route::get('/', 'DashboardController');
+    Route::get('/', 'DashboardController')->name('dashboard');
     Route::resource('users', 'UserController')->names('admin.users');
+    Route::resource('product_categories', 'ProductCategoryController')->names('admin.product_categories');
+    Route::resource('rooms', 'RoomController')->names('admin.rooms');
+    Route::resource('deliveries', 'DeliveryController')->names('admin.deliveries');
 });
 Route::group(['namespace' => 'Front'], function () {
     Route::resource('users', 'UserController');

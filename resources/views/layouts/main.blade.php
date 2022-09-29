@@ -27,7 +27,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="{{route('index')}}" class="nav-link">Home</a>
             </li>
         </ul>
 
@@ -62,6 +62,6 @@
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
 {{--<script src="dist/js/demo.js"></--}}
-<script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
+{{--<script src="{{asset('dist/js/pages/dashboard.js')}}"></script>--}}
 </body>
 </html>
