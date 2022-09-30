@@ -26,7 +26,9 @@ class RoomController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validated();
+        Room::created($validated);
+        return redirect()->route('admin.rooms.index');
     }
 
 
@@ -39,7 +41,7 @@ class RoomController extends Controller
 
     public function edit($id)
     {
-        //
+        return back();
     }
 
     public function update(Request $request, $id)

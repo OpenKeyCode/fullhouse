@@ -47,10 +47,10 @@
 {{--                                            <td><span class="tag tag-success">{{$room}}</span></td>--}}
                                             <td>
                                                 <div class="d-flex">
-                                                    <button type="button" class="btn btn-primary mr-1"><i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-success mr-1"><i class="fas fa-pen"></i>
-                                                    </button>
+                                                    <a href="{{route('admin.rooms.show', $room->id)}}" type="button" class="btn btn-primary mr-1"><i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a type="button" class="btn btn-success mr-1"><i class="fas fa-pen"></i>
+                                                    </a>
                                                     <form action="#">
                                                         <button type="button" class="btn btn-danger"><i
                                                                 class="fas fa-trash"></i></button>

@@ -18,7 +18,7 @@ class AdminPanelMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == User::ROLE_ADMIN) {
+        if (auth()->user()->role == User::getRole()[0]) {
             return $next($request);
         }
         return abort(Response::HTTP_NOT_FOUND);
