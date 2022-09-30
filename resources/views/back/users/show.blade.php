@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('content')
     <div class="content-wrapper" style="min-height: 1604.44px;">
-
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -22,8 +21,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
-
-
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
                                 <h3 class="profile-username text-center">{{$user->name .' '. $user->last_name}}</h3>
@@ -114,15 +111,11 @@
                                         coment
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </section>
-
     </div>
 @endsection
