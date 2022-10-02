@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Back\Delivery\DeliveryCreateRequest;
+use App\Http\Service\EditorUploadImage;
 use App\Models\Delivery;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -23,10 +25,15 @@ class DeliveryController extends Controller
         return view('back.deliveries.create');
     }
 
-
-    public function store(Request $request)
+    public function upload(Request $request)
     {
-        //
+
+    }
+
+    public function store(DeliveryCreateRequest $request)
+    {
+        Delivery::create(EditorUploadImage::ImageUpload($request->validated()));
+        return back();
     }
 
 
@@ -39,7 +46,8 @@ class DeliveryController extends Controller
 
     public function edit($id)
     {
-        //
+        if (empty($delivery = Delivery::find($id))) abort(Response::HTTP_NOT_FOUND);
+        return view('back.deliveries.edit', compact('delivery'));
     }
 
 

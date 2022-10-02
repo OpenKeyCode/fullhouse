@@ -18,7 +18,7 @@
         </div>
         <section class="content">
             <div class="d-flex justify-content-end mb-2 mr-2">
-                <button type="button" class="btn btn-primary">Добавить</button>
+                <a href="{{route('admin.deliveries.create')}}" class="btn btn-primary">Добавить</a>
             </div>
             <div class="container-fluid">
                 <div class="row">
@@ -53,12 +53,14 @@
 {{--                                                </span></td>--}}
                                             <td>
                                                 <div class="d-flex">
-                                                    <button type="button" class="btn btn-primary mr-1"><i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-success mr-1"><i class="fas fa-pen"></i>
-                                                    </button>
-                                                    <form action="#">
-                                                        <button type="button" class="btn btn-danger"><i
+                                                    <a href="{{route('admin.deliveries.show', $delivery->id)}}"  class="btn btn-primary mr-1"><i class="fas fa-eye"></i>
+                                                    </a>
+                                                    <a href="{{route('admin.deliveries.edit', $delivery->id)}}"  class="btn btn-success mr-1"><i class="fas fa-pen"></i>
+                                                    </a>
+                                                    <form method="post" action="{{route('admin.deliveries.destroy', $delivery->id)}}">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger"><i
                                                                 class="fas fa-trash"></i></button>
                                                     </form>
                                                 </div>

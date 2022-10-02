@@ -16,7 +16,7 @@ class DeliveryCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|unique:deliveries,title,deleted_at,NULL',
+            'title' => 'required|string',
             'description' => 'string'
         ];
     }
