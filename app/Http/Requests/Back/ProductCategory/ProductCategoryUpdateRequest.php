@@ -24,7 +24,7 @@ class ProductCategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|unique:product_categories,title,NULL,NULL,deleted_at,NULL',
+            'title' => 'required|string',
             'image' => 'image',
             'color' => 'string',
             'description' => 'string',

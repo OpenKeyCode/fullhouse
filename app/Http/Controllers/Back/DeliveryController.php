@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Back\Delivery\DeliveryCreateRequest;
 use App\Http\Requests\Back\Delivery\DeliveryUpdateRequest;
-use App\Http\Service\EditorUploadImage;
 use App\Models\Delivery;
+use App\Service\EditorUploadImage;
 use Illuminate\Http\Response;
 
 
@@ -25,7 +25,7 @@ class DeliveryController extends Controller
 
     public function store(DeliveryCreateRequest $request)
     {
-        Delivery::create(EditorUploadImage::ImagesUpload($request->validated()));
+        Delivery::create(EditorUploadImage::ImagesUpload($request->validated(), ['description']));
         return redirect()->route('admin.deliveries.index');
     }
 
@@ -44,14 +44,13 @@ class DeliveryController extends Controller
     public function update(DeliveryUpdateRequest $request, $id)
     {
         if (empty($delivery = Delivery::find($id))) abort(Response::HTTP_NOT_FOUND);
-        $delivery->update(EditorUploadImage::ImagesUpload($request->validated()));
+        $delivery->update(EditorUploadImage::ImagesUpload($request->validated(), ['description']));
         return back();
     }
 
     public function destroy($id)
     {
         if (empty($delivery = Delivery::find($id))) abort(Response::HTTP_NOT_FOUND);
-//        EditorUploadImage::ImageDelete($delivery->description);
         $delivery->delete();
         return redirect()->route('admin.deliveries.index');
     }

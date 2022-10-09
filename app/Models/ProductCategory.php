@@ -12,15 +12,18 @@ class ProductCategory extends Model
 
     protected $fillable = ['title', 'image', 'color', 'description', 'parent_category_id'];
 
-    public function getParentCategoryIdAttribute($value)
-    {
-        return self::find($value);
-    }
-
-
-//    public function parent()
+//    public function getParentCategoryIdAttribute($value)
 //    {
-//        return $this->belongsToMany(self::class);
+//        return self::find($value);
 //    }
 
+
+    public function parent()
+    {
+        return $this->hasOne(self::class, 'id', 'parent_category_id');
+    }
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parent_category_id', 'id');
+    }
 }

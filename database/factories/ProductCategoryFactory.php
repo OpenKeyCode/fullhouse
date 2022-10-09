@@ -14,7 +14,7 @@ class ProductCategoryFactory extends Factory
     {
         return [
             'title' => $this->faker->unique(true)->word(),
-            'image' => '/mod/img/default.jpg',
+            'image' => '/product_category/img/default.jpg',
             'color' => $this->faker->name(),
             'description' => $this->faker->text(),
             'parent_category_id' =>$this->faker->boolean ? (ProductCategory::count() ? ProductCategory::inRandomOrder()->first()->id : ProductCategory::factory()->create()->id) : null

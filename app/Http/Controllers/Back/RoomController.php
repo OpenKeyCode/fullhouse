@@ -5,9 +5,8 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Back\Room\RoomCreateRequest;
 use App\Http\Requests\Back\Room\RoomUpdateRequest;
-use App\Http\Service\EditorUploadImage;
 use App\Models\Room;
-use Illuminate\Http\Request;
+use App\Service\EditorUploadImage;
 use Illuminate\Http\Response;
 
 
@@ -30,7 +29,7 @@ class RoomController extends Controller
     public function store(RoomCreateRequest $request)
     {
 
-        Room::create(EditorUploadImage::ImagesUpload($request->validated()));
+        Room::create(EditorUploadImage::ImagesUpload($request->validated(), ['description']));
         return redirect()->route('admin.rooms.index');
     }
 
@@ -52,7 +51,7 @@ class RoomController extends Controller
     public function update(RoomUpdateRequest $request, $id)
     {
         if (empty($room = Room::find($id))) abort(Response::HTTP_NOT_FOUND);
-        $room->update(EditorUploadImage::ImagesUpload($request->validated()));
+        $room->update(EditorUploadImage::ImagesUpload($request->validated(), ['description']));
         return back();
     }
 

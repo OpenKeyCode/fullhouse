@@ -69,7 +69,7 @@
                                         <select name="parent_category_id" class="form-control  select2"
                                                 style="width: 100%;">
                                             @foreach($categories as $category)
-                                                @if(is_null($productCategory->parent_category_id))
+                                                @if(is_null($productCategory->parent))
                                                     <option value="{{$category->id}}">{{$category->title}}</option>
                                                     @continue
                                                 @endif
@@ -79,12 +79,13 @@
                                                     @continue
                                                 @endif
 
-                                                @if(!empty($category->id) and $productCategory->parent_category_id->id === $category->id)
-                                                    <option style="color: red" value="{{$category->id}}" disabled
-                                                            selected="selected">{{$category->title}}</option>
-                                                    @continue
-                                                @endif
-                                                <option value="{{$category->id}}">{{$category->title}}</option>
+{{--                                                @if(!empty($category->id) and  $productCategory->parent->id === $category->id)--}}
+{{--                                                    @if($productCategory->parent->id === $category->id)--}}
+{{--                                                    <option style="color: red" value="{{$category->id}}" disabled--}}
+{{--                                                            selected="selected">{{$category->title}}</option>--}}
+{{--                                                    @continue--}}
+{{--                                                @endif--}}
+                                                    <option value="{{$category->id}}">{{$category->title}}</option>
                                             @endforeach
                                         </select>
                                         @error('parent_category_id')
