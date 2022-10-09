@@ -89,7 +89,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.rooms.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Добавить комнату</p>
                             </a>
@@ -114,7 +114,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.deliveries.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Добавить тип доставки</p>
                             </a>

@@ -9,6 +9,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ProductCategory extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable  = ['title','image','color', 'description', 'parent_category_id'];
+
+    protected $fillable = ['title', 'image', 'color', 'description', 'parent_category_id'];
+
+    public function getParentCategoryIdAttribute($value)
+    {
+        return self::find($value);
+    }
+
+
+//    public function parent()
+//    {
+//        return $this->belongsToMany(self::class);
+//    }
 
 }

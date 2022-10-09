@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Profile</h1>
+                        <h1>Профиль пользователя</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -26,10 +26,6 @@
 
                         <div class="card card-primary card-outline">
                             <div class="card-body box-profile">
-                                <div class="text-center">
-                                    <img class="profile-user-img img-fluid img-circle"
-                                         src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
-                                </div>
                                 <h3 class="profile-username text-center">{{$user->name .' '. $user->last_name}}</h3>
 
                                 <p class="text-muted text-center">{{$user->role}}</p>

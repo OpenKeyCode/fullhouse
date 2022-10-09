@@ -16,7 +16,7 @@ class CreateDeliveriesTable extends Migration
         Schema::create('deliveries', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
