@@ -41,7 +41,7 @@
             </li>
         </ul>
     </nav>
-    @include('includes.js.sidebar')
+    @include('includes.elements.sidebar')
     @yield('content')
 
 </div>
@@ -62,6 +62,7 @@
 <script src="{{asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
+@stack('switch')
 @stack('summernote')
 @stack('fileUploadInput')
 @stack('selectJs')

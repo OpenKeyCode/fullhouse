@@ -13,7 +13,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ProductCategorySeeder::class,
             RoomSeed::class,
-            DeliverySeed::class
+            DeliverySeed::class,
+            ProductSeeder::class,
+
         ]);
     }
 }

@@ -50,8 +50,8 @@
                                                     style="height: 25px; width: 25px; background: {{$category->color}};"></div>
                                             </td>
                                             <td><span class="tag tag-success">
-                                                    @empty(!$category->parent_category_id)
-                                                        {{$category->parent_category_id->title}}
+                                                    @empty(!$category->parent)
+                                                        {{$category->parent->title}}
                                                     @endempty
                                                 </span></td>
                                             <td>

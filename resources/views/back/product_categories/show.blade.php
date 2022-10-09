@@ -25,7 +25,7 @@
                 <br>
                 {{$productCategory->color}}
                 <br>
-                {{$productCategory->parent_category_id->title}}
+                {{$productCategory->parent->title}}
                 <br>
                 {!! $productCategory->description !!}
             </div>

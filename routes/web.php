@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Back', 'prefix' => 'dashboard', 'middleware' => ['
     Route::resource('product_categories', 'ProductCategoryController')->names('admin.product_categories');
     Route::resource('rooms', 'RoomController')->names('admin.rooms');
     Route::resource('deliveries', 'DeliveryController')->names('admin.deliveries');
+    Route::resource('products', 'ProductController')->names('admin.products');
 });
 Route::group(['namespace' => 'Front'], function () {
     Route::resource('users', 'UserController');
