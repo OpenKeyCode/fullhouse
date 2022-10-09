@@ -33,8 +33,6 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
-{{--                                        <th>Телефон</th>--}}
-{{--                                        <th>Роль</th>--}}
                                         <th>Действие</th>
                                     </tr>
                                     </thead>
@@ -43,14 +41,6 @@
                                         <tr>
                                             <td>{{$delivery->id}}</td>
                                             <td>{{$delivery->title}}</td>
-{{--                                            <td>{{$delivery->phone}}</td>--}}
-{{--                                            <td><span class="tag tag-success">--}}
-{{--                                                    @switch($user->role)--}}
-{{--                                                        @case(1) Пользователь @break--}}
-{{--                                                        @case(0) Аминистратор @break--}}
-{{--                                                        @default Не определено @break--}}
-{{--                                                    @endswitch--}}
-{{--                                                </span></td>--}}
                                             <td>
                                                 <div class="d-flex">
                                                     <a href="{{route('admin.deliveries.show', $delivery->id)}}"  class="btn btn-primary mr-1"><i class="fas fa-eye"></i>

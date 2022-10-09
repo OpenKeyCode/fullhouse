@@ -24,8 +24,8 @@
                             @csrf
                             @method('patch')
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Названия доставки</label>
-                                <input type="text" name="title" class="form-control" id="exampleInputEmail1"
+                                <label for="title">Названия доставки</label>
+                                <input type="text" name="title" class="form-control" id="title"
                                        placeholder="Enter email" value="{{$delivery->title}}">
                             </div>
                             @error('title')
@@ -48,6 +48,6 @@
 @endsection
 
 @push('summernote')
-    @include('includes.admin.editor')
+    @include('includes.js.editor')
 @endpush
 

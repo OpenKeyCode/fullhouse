@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Back\Room\RoomCreateRequest;
+use App\Http\Requests\Back\Room\RoomUpdateRequest;
+use App\Http\Service\EditorUploadImage;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -24,10 +27,10 @@ class RoomController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(RoomCreateRequest $request)
     {
-        $validated = $request->validated();
-        Room::created($validated);
+
+        Room::create(EditorUploadImage::ImagesUpload($request->validated()));
         return redirect()->route('admin.rooms.index');
     }
 
@@ -41,18 +44,23 @@ class RoomController extends Controller
 
     public function edit($id)
     {
-        return back();
+        if (empty($room = Room::find($id))) abort(Response::HTTP_NOT_FOUND);
+        return view('back.rooms.edit', compact('room'));
+
     }
 
-    public function update(Request $request, $id)
+    public function update(RoomUpdateRequest $request, $id)
     {
-        //
+        if (empty($room = Room::find($id))) abort(Response::HTTP_NOT_FOUND);
+        $room->update(EditorUploadImage::ImagesUpload($request->validated()));
+        return back();
     }
 
 
     public function destroy($id)
     {
         if (empty($room = Room::find($id))) abort(Response::HTTP_NOT_FOUND);
+//        EditorUploadImage::ImageDelete($room->description);
         $room->delete();
         return redirect()->route('admin.rooms.index');
     }
