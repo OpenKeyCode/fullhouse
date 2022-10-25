@@ -34,7 +34,7 @@ class ProductController extends Controller
 
     public function store(ProductCreateRequest $request)
     {
-        Product::create(UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description', 'short_description', 'parameters'])));
+        Product::create(UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description', 'short_description', 'parameters']), ['image']));
         return redirect()->route('admin.products.index');
 
     }
@@ -58,7 +58,7 @@ class ProductController extends Controller
     {
         if (empty($product = Product::find($id))) abort(Response::HTTP_NOT_FOUND);
 //        dd($request->validated());
-        $validated = UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description', 'short_description', 'parameters']));
+        $validated = UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description', 'short_description', 'parameters']), ['image']);
         $product->update($validated);
         return redirect()->route('admin.products.index');
     }

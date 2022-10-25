@@ -10,7 +10,7 @@ class ProductCategory extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['title', 'image', 'color', 'description', 'parent_category_id'];
+    protected $fillable = ['title', 'image', 'icon', 'color', 'description', 'parent_category_id'];
 
 //    public function getParentCategoryIdAttribute($value)
 //    {

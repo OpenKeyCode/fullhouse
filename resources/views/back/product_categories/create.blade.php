@@ -39,11 +39,22 @@
                             @enderror
 
                             <div class="form-group">
+                                image
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="image" id="customFile" accept="png,jpeg">
                                     <label class="custom-file-label" for="customFile">Выбрать</label>
                                 </div>
                                 @error('image')
+                                {{$message}}
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                icon
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="icon" id="customFile" accept="png,jpeg">
+                                    <label class="custom-file-label" for="customFile">Выбрать</label>
+                                </div>
+                                @error('icon')
                                 {{$message}}
                                 @enderror
                             </div>
@@ -62,8 +73,9 @@
                                     <div class="form-group">
                                         <label>Minimal</label>
                                         <select name="parent_category_id"  class="form-control  select2" style="width: 100%;">
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}" selected="selected">{{$category->title}}</option>
+                                            <option value="">Выбрать</option>
+                                        @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->title}}</option>
                                             @endforeach
                                         </select>
                                         @error('parent_category_id')

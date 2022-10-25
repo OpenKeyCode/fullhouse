@@ -6,10 +6,12 @@ use Illuminate\Support\Facades\Storage;
 
 class UploadImage
 {
-    static function ImageUpload($validated)
+    static function ImageUpload($validated, $keys)
     {
-        if (!empty($validated['image'])){
-            $validated['image'] = Storage::disk('public')->put('/uploads', $validated['image']);
+        foreach ($keys as $key) {
+            if (!empty($validated[$key])){
+                $validated[$key] = Storage::disk('public')->put('/uploads', $validated[$key]);
+            }
         }
         return $validated;
     }

@@ -29,7 +29,7 @@ class ProductCategoryController extends Controller
 
     public function store(ProductCategoryCreateRequest $request)
     {
-        $validated = UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description']));
+        $validated = UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description']), ['image', 'icon']);
         ProductCategory::create($validated);
         return redirect()->route('admin.product_categories.index');
     }
@@ -53,7 +53,7 @@ class ProductCategoryController extends Controller
     public function update(ProductCategoryUpdateRequest $request, $id)
     {
         if (empty($productCategory = ProductCategory::find($id))) abort(Response::HTTP_NOT_FOUND);
-        $validated = UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description']));
+        $validated = UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description']), ['image', 'icon']);
         $productCategory->update($validated);
         return redirect()->route('admin.product_categories.index');
     }
