@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
-
 Auth::routes();
+
 Route::group(['namespace' => 'Back', 'prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', 'DashboardController')->name('dashboard');
     Route::resource('users', 'UserController')->names('admin.users');
@@ -27,6 +24,8 @@ Route::group(['namespace' => 'Back', 'prefix' => 'dashboard', 'middleware' => ['
     Route::resource('deliveries', 'DeliveryController')->names('admin.deliveries');
     Route::resource('products', 'ProductController')->names('admin.products');
 });
+
 Route::group(['namespace' => 'Front'], function () {
-    Route::resource('users', 'UserController');
+    Route::get('/', 'IndexController@index')->name('index');
+    Route::get('users', 'UserController@index')->name('user');
 });
