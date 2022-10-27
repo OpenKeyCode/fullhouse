@@ -170,7 +170,9 @@
                             </div>
 
 
-                            <button type="submit">создать</button>
+                            <div class="card-footer d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Создать</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Back', 'prefix' => 'dashboard', 'middleware' => ['
     Route::resource('rooms', 'RoomController')->names('admin.rooms');
     Route::resource('deliveries', 'DeliveryController')->names('admin.deliveries');
     Route::resource('products', 'ProductController')->names('admin.products');
+    Route::resource('banners', 'BannerController')->names('admin.banners');
 });
 
 Route::group(['namespace' => 'Front'], function () {

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Back\User;
+namespace App\Http\Requests\Back\Banner;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class BannerUpdateRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,10 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string',
+            'alter_text' => 'required|string',
+            'image' => 'image',
+            'image_mobile' => 'image',
         ];
     }
 

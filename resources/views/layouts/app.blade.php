@@ -37,7 +37,7 @@
     <meta name="application-name" content="FullHouse.uz"/>
     <meta name="msapplication-tooltip" content="Description"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-{{--    <link rel="stylesheet" href="{{asset('assets/t/mystyle.scss.css')}}" onload="this.media='all'"/>--}}
+{{--        <link rel="stylesheet" href="{{asset('assets/t/mystyle.scss.css')}}" onload="this.media='all'"/>--}}
     <link rel="stylesheet" href="{{asset('assets/t/mystyle.scss.css')}}"/>
     <link rel="icon" href="favicon.svg" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
@@ -263,7 +263,12 @@
 
 
                 <div class="user user-block-btn">
-                    <span class="user-link">Войти</span>
+                    @guest()
+                        <span class="user-link">Войти</span>
+                    @endguest
+                    @auth()
+                            <span class="user-link" style="max-width: 95px;overflow: hidden;">{{auth()->user()->name}}</span>
+                    @endauth
                     <div class="user-auth-wrapper">
                         @auth()
                             <div class="user_links"><a href="{{route('user')}}" class="user_settings hvr btn-style-1">Настройки</a>
@@ -271,7 +276,8 @@
                                 <form action="{{route('logout')}}" method="post">
                                     @csrf
                                     <button type="submit"
-                                        href="" class="hvr btn-style-2 log_out">Выйти</button>
+                                            href="" class="hvr btn-style-2 log_out">Выйти
+                                    </button>
                                 </form>
                             </div>
                         @endauth
