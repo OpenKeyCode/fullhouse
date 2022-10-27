@@ -12,19 +12,16 @@ use Illuminate\Http\Response;
 
 class RoomController extends Controller
 {
-
     public function index()
     {
         $rooms = Room::orderBy('id', 'DESC')->paginate(5);
         return view('back.rooms.index', compact('rooms'));
     }
 
-
     public function create()
     {
         return view('back.rooms.create');
     }
-
 
     public function store(RoomCreateRequest $request)
     {
@@ -33,13 +30,11 @@ class RoomController extends Controller
         return redirect()->route('admin.rooms.index');
     }
 
-
     public function show($id)
     {
         if (empty($room = Room::find($id))) abort(Response::HTTP_NOT_FOUND);
         return view('back.rooms.show', compact('room'));
     }
-
 
     public function edit($id)
     {
@@ -54,7 +49,6 @@ class RoomController extends Controller
         $room->update(EditorUploadImage::ImagesUpload($request->validated(), ['description']));
         return back();
     }
-
 
     public function destroy($id)
     {

@@ -217,8 +217,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item menu-is-opening">
-                    <a href="#" class="nav-link">
+                <li class="nav-item menu-is-opening {{Route::is('admin.setting.index') ? 'menu-open' : ''}}">
+                    <a href="#" class="nav-link {{Route::is('admin.setting.index') ? 'active' : ''}}">
                         <i class="fas fa-wrench nav-icon"></i>
                         <p>
                             Настройки
@@ -228,7 +228,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{route('admin.setting.index')}}" class="nav-link {{Route::is('admin.setting.index') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Настройка сайта</p>
                             </a>

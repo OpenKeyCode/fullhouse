@@ -11,7 +11,6 @@ use App\Models\ProductCategory;
 use App\Models\Room;
 use App\Service\EditorUploadImage;
 use App\Service\UploadImage;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class ProductController extends Controller

@@ -14,8 +14,8 @@ class RoomUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
-            'description' => 'string'
+            'title'         => 'required|string',
+            'description'   => 'string'
         ];
     }
 

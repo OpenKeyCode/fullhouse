@@ -24,6 +24,7 @@ Route::group(['namespace' => 'Back', 'prefix' => 'dashboard', 'middleware' => ['
     Route::resource('deliveries', 'DeliveryController')->names('admin.deliveries');
     Route::resource('products', 'ProductController')->names('admin.products');
     Route::resource('banners', 'BannerController')->names('admin.banners');
+    Route::resource('setting', 'SettingController')->only(['index', 'update'])->names('admin.setting');
 });
 
 Route::group(['namespace' => 'Front'], function () {

@@ -15,13 +15,13 @@ class ProductCategoryCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string|unique:product_categories,title,NULL,NULL,deleted_at,NULL',
-            'image' => 'required|image',
-            'icon' => 'required|image',
-            'color' => 'string',
-            'description' => 'string',
+            'title'                 => 'required|string|unique:product_categories,title,NULL,NULL,deleted_at,NULL',
+            'image'                 => 'required|image',
+            'icon'                  => 'required|image',
+            'color'                 => 'string',
+            'description'           => 'string',
 //            'parent_category_id' => 'nullable|integer|exists:product_categories,id,deleted_at,NULL'
-            'parent_category_id' => 'nullable|integer'
+            'parent_category_id'    => 'nullable|integer'
         ];
     }
 

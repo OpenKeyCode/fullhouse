@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProductCategory;
 
-class ProductCayegoryController extends Controller
+class ProductCategoryController extends Controller
 {
     public function index()
     {

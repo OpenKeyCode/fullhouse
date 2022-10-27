@@ -19,19 +19,19 @@ class ProductFactory extends Factory
     {
 
         return [
-            'title' => $this->faker->unique(true)->word(),
-            'description' => $this->faker->text(),
-            'short_description' => $this->faker->text(),
-            'price' => (float)(rand(0, 999999) / 100),
-            'discount' => (float)(rand(0, 999999) / 100),
-            'stock' => (boolean)(rand(0, 1)),
-            'image' => '/product/img/default.jpg',
-            'status' => (boolean)(rand(0, 1)),
-            'parameters' => json_encode(['params_1' => 'test1', 'params_2' => 'test2']),
-            'room_id' => Room::count() ? Room::inRandomOrder()->first()->id : Room::factory()->create()->id,
-            'product_category_id' => ProductCategory::count() ? ProductCategory::inRandomOrder()->first()->id : ProductCategory::factory()->create()->id,
-            'delivery_id' => Delivery::count() ? Delivery::inRandomOrder()->first()->id : Delivery::factory()->create()->id,
-            'identifier' => rand(99999999, 999999999),
+            'title'                 => $this->faker->unique(true)->word(),
+            'description'           => $this->faker->text(),
+            'short_description'     => $this->faker->text(),
+            'price'                 => (float)(rand(0, 999999) / 100),
+            'discount'              => (float)(rand(0, 999999) / 100),
+            'stock'                 => (boolean)(rand(0, 1)),
+            'image'                 => '/product/img/default.jpg',
+            'status'                => (boolean)(rand(0, 1)),
+            'parameters'            => json_encode(['params_1' => 'test1', 'params_2' => 'test2']),
+            'room_id'               => Room::count() ? Room::inRandomOrder()->first()->id : Room::factory()->create()->id,
+            'product_category_id'   => ProductCategory::count() ? ProductCategory::inRandomOrder()->first()->id : ProductCategory::factory()->create()->id,
+            'delivery_id'           => Delivery::count() ? Delivery::inRandomOrder()->first()->id : Delivery::factory()->create()->id,
+            'identifier'            => rand(99999999, 999999999),
         ];
     }
 }

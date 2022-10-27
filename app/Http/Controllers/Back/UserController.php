@@ -10,13 +10,11 @@ use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
-
     public function index()
     {
         $users = User::orderBy('id', 'DESC')->paginate(5);
         return view('back.users.index', compact('users'));
     }
-
 
     public function create()
     {

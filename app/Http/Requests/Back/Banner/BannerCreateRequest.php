@@ -14,10 +14,10 @@ class BannerCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
-            'alter_text' => 'required|string',
-            'image' => 'required|image',
-            'image_mobile' => 'required|image',
+            'title'         => 'required|string',
+            'alter_text'    => 'required|string',
+            'image'         => 'required|image',
+            'image_mobile'  => 'required|image',
         ];
     }
 

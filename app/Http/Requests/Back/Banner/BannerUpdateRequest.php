@@ -14,10 +14,10 @@ class BannerUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
-            'alter_text' => 'required|string',
-            'image' => 'image',
-            'image_mobile' => 'image',
+            'title'         => 'required|string',
+            'alter_text'    => 'required|string',
+            'image'         => 'image',
+            'image_mobile'  => 'image',
         ];
     }
 

@@ -14,12 +14,12 @@ class ProductCategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
-            'image' => 'image',
-            'icon' => 'image',
-            'color' => 'string',
-            'description' => 'string',
-            'parent_category_id' => 'nullable|integer|exists:product_categories,id,deleted_at,NULL'
+            'title'                 => 'required|string',
+            'image'                 => 'image',
+            'icon'                  => 'image',
+            'color'                 => 'string',
+            'description'           => 'string',
+            'parent_category_id'    => 'nullable|integer|exists:product_categories,id,deleted_at,NULL'
         ];
     }
 
