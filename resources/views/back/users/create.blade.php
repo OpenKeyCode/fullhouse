@@ -76,7 +76,7 @@
                         </div>
                         <!-- /.card-body -->
 
-                        <div class="card-footer">
+                        <div class="card-footer d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary">Создать</button>
                         </div>
                     </form>

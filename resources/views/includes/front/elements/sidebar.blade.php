@@ -17,8 +17,7 @@
                         @endforeach
 {{--                        <li class="nav-side__section"><a itemprop="url" href="/shop/divany-v-tashkente">Диваны</a></li>--}}
 {{--                        <li class="nav-side__section"><a itemprop="url" href="/shop/kresla-v-tashkente">Кресла</a></li>--}}
-{{--                        <li class="nav-side__section"><a itemprop="url" href="/shop/pufy-i-banketki">Пуфы и банкетки</a>--}}
-                        </li>
+{{--                        <li class="nav-side__section"><a itemprop="url" href="/shop/pufy-i-banketki">Пуфы и банкетки</a></li>--}}
                     </ul>
                 </li>
             @endforeach

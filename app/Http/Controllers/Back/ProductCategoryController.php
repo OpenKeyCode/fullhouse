@@ -20,7 +20,6 @@ class ProductCategoryController extends Controller
         return view('back.product_categories.index', compact('categories'));
     }
 
-
     public function create()
     {
         $categories = ProductCategory::all();
@@ -34,13 +33,11 @@ class ProductCategoryController extends Controller
         return redirect()->route('admin.product_categories.index');
     }
 
-
     public function show($id)
     {
         if (empty($productCategory = ProductCategory::find($id))) abort(Response::HTTP_NOT_FOUND);
         return view('back.product_categories.show', compact('productCategory'));
     }
-
 
     public function edit($id)
     {
@@ -49,15 +46,13 @@ class ProductCategoryController extends Controller
         return view('back.product_categories.edit', compact('productCategory','categories'));
     }
 
-
     public function update(ProductCategoryUpdateRequest $request, $id)
     {
         if (empty($productCategory = ProductCategory::find($id))) abort(Response::HTTP_NOT_FOUND);
         $validated = UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description']), ['image', 'icon']);
         $productCategory->update($validated);
-        return redirect()->route('admin.product_categories.index');
+        return back();
     }
-
 
     public function destroy($id)
     {

@@ -57,10 +57,9 @@ class ProductController extends Controller
     public function update(ProductUpdateRequest $request, $id)
     {
         if (empty($product = Product::find($id))) abort(Response::HTTP_NOT_FOUND);
-//        dd($request->validated());
         $validated = UploadImage::ImageUpload(EditorUploadImage::ImagesUpload($request->validated(), ['description', 'short_description', 'parameters']), ['image']);
         $product->update($validated);
-        return redirect()->route('admin.products.index');
+        return back();
     }
 
     public function destroy($id)
